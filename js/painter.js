@@ -7,6 +7,8 @@
         w: 0,
         //高度
         h: 0,
+        //状态-1:初始或结束状态，0:开始画,1:画画中
+        status: 0,
         //当前画笔颜色
         bColor: null,
         //当前画笔大小
@@ -116,6 +118,9 @@
                 self = this;
             //绑定鼠标按下时间
             can.on("mousedown", function (e) {
+// TODO:         if(!Client.isOperUser()){ //如果不是操作用户，不允许画画
+//                     return;                
+// }
                 e.preventDefault();
                 (this.x = e.offsetX), (this.y = e.offsetY);
                 self.fire("onStartDraw", { x: this.x, y: this.y });
@@ -131,6 +136,8 @@
                 can.on("mouseup", function () {
                     //取消鼠标移动事件
                     can.off("mousemove");
+                    //触发绘画完毕
+                    self.fire("onDrawEnd");
                 });
             });
         },
@@ -146,14 +153,29 @@
         },
         //开始画画事件
         onStartDraw: function (data) {
+            this.status = 0;
             //开始路径
             this.ctx.beginPath();
             this.ctx.moveTo(data.x, data.y);
+//TODO            //发送开始画画事件
+//            if (Client.isOperUser()) {
+//                Client.emitStartDraw(data);
+//            }
         },
         //画画事件
         onDrawing: function (data) {
+//TODO            if (this.status == 0) {
+//                this.status = 1;
+//                }
             this.ctx.lineTo(data.x, data.y);
             this.ctx.stroke();
+//TODO            //发送开始画画事件
+//            if (Client.isOperUser()) {
+//                Client.emitStartDraw(data);
+//            }            
+        },
+        onDrawEnd: function () {
+           this.status = -1;
         },
         //画板更新事件，当画板的参数比如画笔颜色，大小改变时触发
         onPaintUpdate: function (data) {
@@ -164,6 +186,10 @@
             this.setBrushWidth(w);
             //设置画笔颜色
             this.setBrushColor(c);
+// TODO           //发送画板更新事件
+//            if (Client.isOperUser()) {
+//                Client.emitPaintUpdate(param);
+//            }
         },
     };
     //画板初始化
