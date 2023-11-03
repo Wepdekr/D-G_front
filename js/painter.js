@@ -7,8 +7,6 @@
         w: 0,
         //高度
         h: 0,
-        //状态-1:初始或结束状态，0:开始画,1:画画中
-        status: 0,
         //当前画笔颜色
         bColor: null,
         //当前画笔大小
@@ -33,6 +31,7 @@
         },
         //初始化画笔
         initBrush: function () {
+            //定义画板颜色
             var bColor = [
                 "#000000",
                 "#999999",
@@ -48,7 +47,7 @@
                 "#FFCCCC",
                 "#6633FF",
                 "#CCFFCC",
-            ];	
+            ];
             var bDiv = $("#ys"),
                 self = this;
             //产生颜色层
@@ -66,7 +65,6 @@
                 });
                 bDiv.append(b);
             }
-			console.log("初始化画笔");
             //绑定画笔大小
             var bWidth = [2, 8, 16, 24];
             var bcDiv = $("#bc");
@@ -82,7 +80,6 @@
                 });
                 bcDiv.append(bw);
             }
-			
         },
         //初始化橡皮擦
         initEraser: function () {
@@ -114,13 +111,11 @@
         },
         //初始化画板
         initCanvas: function () {
+            //绑定绘图canvas
             var can = $("#paintArea"),
                 self = this;
             //绑定鼠标按下时间
             can.on("mousedown", function (e) {
-                if (!Client.isOperUser()) {
-                    return;
-                }
                 e.preventDefault();
                 (this.x = e.offsetX), (this.y = e.offsetY);
                 self.fire("onStartDraw", { x: this.x, y: this.y });
@@ -136,8 +131,6 @@
                 can.on("mouseup", function () {
                     //取消鼠标移动事件
                     can.off("mousemove");
-                    //触发绘画完毕
-                    self.fire("onDrawEnd");
                 });
             });
         },
@@ -153,42 +146,24 @@
         },
         //开始画画事件
         onStartDraw: function (data) {
-            this.status = 0;
             //开始路径
             this.ctx.beginPath();
             this.ctx.moveTo(data.x, data.y);
-            //发送开始画画事件
-            if (Client.isOperUser()) {
-                Client.emitStartDraw(data);
-            }
         },
         //画画事件
         onDrawing: function (data) {
-            if (this.status == 0) {
-                this.status = 1;
-            }
             this.ctx.lineTo(data.x, data.y);
             this.ctx.stroke();
-            if (Client.isOperUser()) {
-                //发送画画事件
-                Client.emitDrawing(data);
-            }
-        },
-        //绘画完毕事件
-        onDrawEnd: function () {
-            this.status = -1;
         },
         //画板更新事件，当画板的参数比如画笔颜色，大小改变时触发
         onPaintUpdate: function (data) {
             var w = data.width || this.bWidth,
                 c = data.color || this.bColor;
             var param = { width: w, color: c };
+            //设置画笔大小
             this.setBrushWidth(w);
+            //设置画笔颜色
             this.setBrushColor(c);
-            //发送画板更新事件
-            if (Client.isOperUser()) {
-                Client.emitPaintUpdate(param);
-            }
         },
     };
     //画板初始化
