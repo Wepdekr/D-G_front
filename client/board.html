@@ -49,23 +49,32 @@
                             </div>
                         </div>
                     </div>
-                    <!--消息发布主层-->
+                    <!-- 消息发布主层
                     <div id="msgArea" class="msgArea"></div>
-                    <div class="bd">
-                        <input
-                            type="button"
-                            id="btnSendMsg"
-                            value="发送" /><input
-                            type="text"
-                            size="13"
-                            id="txtMsg" />
+                        <div class="bd">
+                            <input
+                                type="button"
+                                id="btnSendMsg"
+                                value="发送" />
+                                <input
+                                type="text"
+                                size="13"
+                                id="txtMsg" />
+                    </div> -->
+                    <input type="button" id="btnSubmitDraw" value="画完提交" />
+                    <div>
+                        <input type="text" size="13" id="txtGuess"></input>
+                        <input type="button" id="btnSubmit" value="提交猜词" />
                     </div>
                 </div>
             </div>
         </div>
+        <!-- 消息层 -->
+        <div id="msg"></div>
     </body>
     <script src="../js/jquery.js" charset="utf-8"></script>
     <script src="../js/painter.js" charset="utf-8"></script>
+    <script src="../js/client_ajax.js" charset="utf-8"></script>
     <script>
         //检测是否支持Html5
         function isSupportHTML5() {
@@ -76,7 +85,35 @@
             if (!isSupportHTML5()) {
                 alert("您的浏览器不支持HTML5,请更换浏览器!");
             } else {
-                $("#main").show();
+            $("#main").show();
+
+                // 0. 初始化客户端
+
+                // Client.connect(host, 9000);
+                // Client.user.uname = user;
+                
+                // 1. 提交作画
+                $("#btnSubmitDraw").click(function () {
+                    var ctx = $("#paintArea")[0].getContext("2d");
+                    var imageData = ctx.getImageData(0, 0, 525, 370);
+                    Client.submitDraw(imageData);
+                });
+
+                // 2. 消息发布
+                // $("#btnSendMsg").click(function () {
+                //     var txt = $("#txtMsg").val();
+                //     Client.sendMsg(txt);
+                //     $("#txtMsg").val("");
+                // });
+                // $("#txtMsg").on("keydown", function (e) {
+                //     if (e.keyCode == 13) {
+                //         var txt = $("#txtMsg").val();
+                //         Client.sendMsg(txt);
+                //         $("#txtMsg").val("");
+                //     }
+                // });
+
+                
             }
         });
     </script>
