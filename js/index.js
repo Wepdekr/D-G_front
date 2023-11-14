@@ -1,4 +1,6 @@
 window.onload = function(){
+    window.sessionStorage.clear();
+
     document.getElementById("startButton").addEventListener("click",function(){
         window.location.replace("login.html");
     })
