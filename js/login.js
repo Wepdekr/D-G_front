@@ -13,7 +13,7 @@ window.onload = function() {
                 var data = JSON.parse(xhr.responseText);
                 if(data.status_code == 200){
                     alert(data.msg);
-                    Game_state.token = data.token; // 登录房间
+                    window.sessionStorage.setItem("token",data.token);
                     window.location.replace("room.html");
                 }
                 else{
