@@ -14,6 +14,7 @@ var Room = {
     readyPlayer: 0,
     unreadyPlayer: 0,
     self_ready: false, // 自己是否准备好了
+    startFlag: false, // 房间是否开始
     getRoomState: function(){
         var formData = new FormData;
         var xhr = new XMLHttpRequest();
@@ -24,6 +25,8 @@ var Room = {
             if(data.status_code == 200){
                 // 获取成功
                 this.state = data.state;
+                if(this.state)
+                    this.startFlag = true; // 房间已开始
                 this.lexicon_id = data.lexicon_id;
                 this.member = data.member.split(',');
                 this.ready = data.ready.split(',');
@@ -139,9 +142,16 @@ var Room = {
         this.refreshReadyButton();
         this.refreshPlayerList();
     },
+    checkStartStatus: function(){
+        if(this.startFlag){
+            alert("游戏开始！正在启动游戏……");
+            window.location.replace("");
+        }
+    },
     updateRoomState: function(){
         this.getRoomState();
         this.updateRoomMemberReadyStatus();
+        
     }
 };
 
