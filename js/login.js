@@ -14,6 +14,7 @@ window.onload = function() {
                 if(data.status_code == 200){
                     alert(data.msg);
                     window.sessionStorage.setItem("token",data.token);
+                    window.sessionStorage.setItem("username",username);
                     window.location.replace("join.html");
                 }
                 else{
