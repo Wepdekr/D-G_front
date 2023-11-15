@@ -81,11 +81,28 @@ var Room = {
         if(this.readyPlayer == this.totalPlayer)
             counterBox.innerText += "\n等待房主开始游戏……";
     },
+    refreshClickable: function(){
+        if(this.isOwner){
+            document.getElementById("lexiconSelect").removeAttribute("disabled");
+            document.getElementById("startButton").removeAttribute("disabled");
+            document.getElementById("disbandButton").removeAttribute("disabled");
+            document.getElementById("prepareButton").setAttribute("disabled", true);
+            document.getElementById("exitButton").setAttribute("disabled", true);
+        }
+        else{
+            document.getElementById("lexiconSelect").setAttribute("disabled", true);
+            document.getElementById("startButton").setAttribute("disabled", true);
+            document.getElementById("disbandButton").setAttribute("disabled", true);
+            document.getElementById("prepareButton").removeAttribute("disabled");
+            document.getElementById("exitButton").removeAttribute("disabled");
+        }
+    },
     refreshDisplay: function(){
         this.refreshTitle();
         this.refreshLexiconSelect();
-        Room.refreshRoomID();
-        Room.refreshCounterBox();
+        this.refreshRoomID();
+        this.refreshCounterBox();
+        this.refreshClickable();
     },
     updateRoomState: function(){
         this.getRoomState();
@@ -94,7 +111,7 @@ var Room = {
 };
 
 function refreshState(){
-
+    
 }
 
 window.onload = function(){
