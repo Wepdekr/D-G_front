@@ -97,12 +97,21 @@ var Room = {
             document.getElementById("exitButton").removeAttribute("disabled");
         }
     },
+    refreshReadyButton: function(){
+        if(this.self_ready){
+            document.getElementById("prepareButton").innerText = "取消准备";
+        }  
+        else{
+            document.getElementById("prepareButton").innerText = "准备";
+        }
+    },
     refreshDisplay: function(){
         this.refreshTitle();
         this.refreshLexiconSelect();
         this.refreshRoomID();
         this.refreshCounterBox();
         this.refreshClickable();
+        this.refreshReadyButton();
     },
     updateRoomState: function(){
         this.getRoomState();
@@ -111,10 +120,10 @@ var Room = {
 };
 
 function refreshState(){
-    
+    Room.updateRoomState();
+    Room.refreshDisplay();
 }
 
 window.onload = function(){
-    Room.updateRoomState();
-    Room.refreshDisplay();
+    setInterval(refreshState, 100);
 }
