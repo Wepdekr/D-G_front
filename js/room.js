@@ -201,4 +201,52 @@ window.onload = function(){
             }
         }
     });
+
+    document.getElementById("exitButton").addEventListener("click", function(){
+        var formData = new FormData();
+        formData.append("token", token);
+        formData.append("room_id",Room.room_id);
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST",SERVER_ADDR+ '/exit');
+        xhr.send(formData);
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                var data = JSON.parse(xhr.responseText);
+                if(data.status_code == 200){
+                    alert(data.msg);// 成功退出
+                    window.location.replace("join.html");
+                }
+                else{
+                    alert(data.msg);
+                }
+            }
+            else if(xhr.status == 403){
+                alert("登录状态异常，请重新登录");
+            }
+        }
+    });
+
+    document.getElementById("disbandButton").addEventListener("click", function(){
+        var formData = new FormData();
+        formData.append("token", token);
+        formData.append("room_id",Room.room_id);
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST",SERVER_ADDR+ '/exit');
+        xhr.send(formData);
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                var data = JSON.parse(xhr.responseText);
+                if(data.status_code == 200){
+                    alert(data.msg);// 成功退出
+                    window.location.replace("join.html");
+                }
+                else{
+                    alert(data.msg);
+                }
+            }
+            else if(xhr.status == 403){
+                alert("登录状态异常，请重新登录");
+            }
+        }
+    });    
 }
