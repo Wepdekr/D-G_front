@@ -109,6 +109,23 @@ var Room = {
             document.getElementById("prepareButton").innerText = "准备";
         }
     },
+    createMemberLi: function(member_name, ready_state){
+        var li = document.createElement("li");
+        var name = document.createElement("p");
+        name.innerText = member_name;
+        var ready = document.createElement("p");
+        ready.innerText = ready_state;
+        li.appendChild(name);
+        li.appendChild(ready);
+        return li;
+    },
+    refreshPlayerList: function(){
+        var playerUl = document.getElementById("player-ul");
+        playerUl.innerHTML = "";
+        for(let i=0;i<this.member.length;i++){
+            playerUl.appendChild(this.createMemberLi(this.member[i],this.ready[i]));
+        }
+    },
     refreshDisplay: function(){
         this.refreshTitle();
         this.refreshLexiconSelect();
@@ -116,6 +133,7 @@ var Room = {
         this.refreshCounterBox();
         this.refreshClickable();
         this.refreshReadyButton();
+        this.refreshPlayerList();
     },
     updateRoomState: function(){
         this.getRoomState();
