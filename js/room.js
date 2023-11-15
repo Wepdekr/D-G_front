@@ -36,8 +36,12 @@ var Room = {
                 }
                 this.self_ready = data.self_ready;
             }
+            else if(data.status_code == 404 && this.state != null){ // 房间解散
+                alert("房间已被解散，退出中");
+                window.location.replace("join.html");
+            }
             else{
-                alert("未知错误，获取房间信息失败");
+                alert(data.msg);
             }
         }
         else if(xhr.status == 403){
