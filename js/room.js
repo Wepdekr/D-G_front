@@ -231,6 +231,7 @@ window.onload = function(){
             if(xhr.readyState == 4 && xhr.status == 200){
                 var data = JSON.parse(xhr.responseText);
                 if(data.status_code == 200){
+                    clearInterval(intervalID);
                     alert(data.msg);// 成功退出
                     window.location.replace("join.html");
                 }
@@ -255,7 +256,8 @@ window.onload = function(){
             if(xhr.readyState == 4 && xhr.status == 200){
                 var data = JSON.parse(xhr.responseText);
                 if(data.status_code == 200){
-                    alert(data.msg);// 成功退出
+                    clearInterval(intervalID);
+                    alert(data.msg);// 成功解散
                     window.location.replace("join.html");
                 }
                 else{
