@@ -179,4 +179,26 @@ window.onload = function(){
         }
     });
 
+    document.getElementById("startButton").addEventListener("click", function(){
+        var formData = new FormData();
+        formData.append("token", token);
+        formData.append("room_id",Room.room_id);
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST",SERVER_ADDR+ '/start');
+        xhr.send(formData);
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                var data = JSON.parse(xhr.responseText);
+                if(data.status_code == 200){
+                    // 开始成功
+                }
+                else{
+                    alert(data.msg);
+                }
+            }
+            else if(xhr.status == 403){
+                alert("登录状态异常，请重新登录");
+            }
+        }
+    });
 }
