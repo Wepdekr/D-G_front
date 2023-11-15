@@ -40,16 +40,24 @@ var Room = {
                 this.self_ready = data.self_ready;
             }
             else if(data.status_code == 404 && this.state != null){ // 房间解散
+                clearInterval(intervalID);
                 alert("房间已被解散，退出中");
                 window.location.replace("join.html");
             }
+            else if(data.status_code == 404){
+                clearInterval(intervalID);
+                alert("房间不存在，返回中……");
+                window.location.replace("join.html");
+            }
             else{
+                clearInterval(intervalID);
                 alert(data.msg);
             }
         }
         else if(xhr.status == 403){
             clearInterval(intervalID);
             alert("登录状态异常，请重新登录");
+            window.location.replace("login.html");
         }
     },
     updateRoomMemberReadyStatus: function(){
@@ -144,14 +152,15 @@ var Room = {
     },
     checkStartStatus: function(){
         if(this.startFlag){
+            clearInterval(intervalID);
             alert("游戏开始！正在启动游戏……");
-            window.location.replace("");
+            window.location.replace("game.html");
         }
     },
     updateRoomState: function(){
         this.getRoomState();
         this.updateRoomMemberReadyStatus();
-        
+        this.checkStartStatus();
     }
 };
 
