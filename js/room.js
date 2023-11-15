@@ -14,34 +14,35 @@ var Room = {
     getRoomState: function(){
         var formData = new FormData;
         var xhr = new XMLHttpRequest();
-        xhr.open("GET",SERVER_ADDR+'/room'+'?'+'token='+token+'&'+'room_id='+window.sessionStorage.getItem("room_id"));
+        xhr.open("GET",SERVER_ADDR+'/room'+'?'+'token='+token+'&'+'room_id='+window.sessionStorage.getItem("room_id"),false);
         xhr.send();
-        xhr.onreadystatechange = function(){
-            if(xhr.readyState == 4 && xhr.status == 200){
-                var data = JSON.parse(xhr.responseText);
-                if(data.status_code == 200){
-                    // 获取成功
-                    this.state = data.state;
-                    this.lexicon_id = data.lexicon_id;
-                    this.member = data.member.split(',');
-                    this.ready = data.ready.split(',');
-                    this.owner = data.owner;
-                    if(this.owner == window.sessionStorage.getItem("username")){
-                        this.isOwner = true;
-                    }
-                    else{
-                        this.isOwner = false;
-                    }
-                    this.self_ready = data.self_ready;
+        if(xhr.readyState == 4 && xhr.status == 200){
+            var data = JSON.parse(xhr.responseText);
+            if(data.status_code == 200){
+                // 获取成功
+                this.state = data.state;
+                this.lexicon_id = data.lexicon_id;
+                this.member = data.member.split(',');
+                this.ready = data.ready.split(',');
+                this.owner = data.owner;
+                if(this.owner == window.sessionStorage.getItem("username")){
+                    this.isOwner = true;
                 }
                 else{
-                    alert("未知错误，获取房间信息失败");
+                    this.isOwner = false;
                 }
+                this.self_ready = data.self_ready;
             }
-        }.bind(this);
+            else{
+                alert("未知错误，获取房间信息失败");
+            }
+        }
+        else if(xhr.status == 403){
+            alert("登录状态异常，请重新登录");
+        }
     },
     updateRoomMemberReadyStatus: function(){
-        console.log(this);
+        console.log("!",this);
         console.log(this.member);
         this.totalPlayer = this.member.length;
         this.readyPlayer = 0;
@@ -95,9 +96,10 @@ function refreshState(){
 }
 
 window.onload = function(){
-    Room.getRoomState();
-    console.log(Room);
     Room.updateRoomState();
-    console.log(Room);
-    Room.refreshCounterBox();
+    // Room.getRoomState();
+    // console.log(Room);
+    // Room.updateRoomState();
+    // console.log(Room);
+    // Room.refreshCounterBox();
 }
