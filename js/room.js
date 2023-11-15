@@ -1,4 +1,7 @@
 var token = window.sessionStorage.getItem('token');
+
+var intervalID = null;
+
 var Room = {
     state : null, // 初始态房间
     lexicon_id : 0, // 初始词库
@@ -38,6 +41,7 @@ var Room = {
             }
         }
         else if(xhr.status == 403){
+            clearInterval(intervalID);
             alert("登录状态异常，请重新登录");
         }
     },
@@ -125,5 +129,5 @@ function refreshState(){
 }
 
 window.onload = function(){
-    setInterval(refreshState, 100);
+    intervalID = setInterval(refreshState, 100);
 }
