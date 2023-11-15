@@ -57,11 +57,12 @@ var Room = {
         }
     },
     refreshTitle: function(){
+        console.log(this.self_ready);
         if(this.self_ready){
-            document.getElementsByTagName("title").innerText = "已准备 - ("+this.readyPlayer+"/"+this.totalPlayer+")";
+            document.title = "已准备 - ("+this.readyPlayer+"/"+this.totalPlayer+")";
         }
         else{
-            document.getElementsByTagName("title").innerText = "游戏房间 - 未准备";
+            document.title.innerText = "游戏房间 - 未准备";
         }
     },
     refreshLexiconSelect: function(){
@@ -84,6 +85,7 @@ var Room = {
         this.refreshTitle();
         this.refreshLexiconSelect();
         Room.refreshRoomID();
+        Room.refreshCounterBox();
     },
     updateRoomState: function(){
         this.getRoomState();
@@ -97,9 +99,5 @@ function refreshState(){
 
 window.onload = function(){
     Room.updateRoomState();
-    // Room.getRoomState();
-    // console.log(Room);
-    // Room.updateRoomState();
-    // console.log(Room);
-    // Room.refreshCounterBox();
+    Room.refreshDisplay();
 }
