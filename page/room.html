@@ -16,7 +16,7 @@
 
         <div class="leftpage-box">
             <select id="lexiconSelect">
-                <option value="0">请选择词库</option>
+                <option value="0" selected>请选择词库</option>
                 <option value="1">动物类</option>
                 <option value="2">植物类</option>
                 <option value="3">食品类</option>
@@ -40,8 +40,15 @@
                     <!-- 玩家将在这里动态添加 -->
                 </ul>
             </div>
+            <div class="counter-box">
+                <p>0/0已准备</p>
+            </div>
         </div>
 
+        <div class="rightdown-hint">
+            <p>房间号码：</p>
+            <p id="room_id-display"></p>
+        </div>
 
     </div>
 </body>
