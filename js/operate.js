@@ -19,6 +19,13 @@ function initButtonAction(){
     clearButton.addEventListener("click",function(){
         window.Painter.clear();
     });
+    
+    var submitButton = document.getElementById("submitButton");
+    submitButton.addEventListener("click", function(){
+        var ans = document.getElementById("answerInput").value;
+        // 提交给后端
+        console.log(ans);
+    })
 }
 
 addLoadEvent(initBoldSelectDisplay);
