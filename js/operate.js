@@ -26,6 +26,13 @@ function initButtonAction(){
         // 提交给后端
         console.log(ans);
     })
+
+    var imgButton = document.getElementById("uploadImgButton");
+    imgButton.addEventListener("click",function(){
+        var img = document.getElementById("paintArea").toDataURL();
+        // 提交给后端
+        console.log(img);
+    });
 }
 
 addLoadEvent(initBoldSelectDisplay);
