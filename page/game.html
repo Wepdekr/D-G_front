@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>游戏进行中 - 第0轮</title>
     <script src="../js/config.js"></script>
-    <script src="../js/room.js"></script>
+    <script src="../js/board.js"></script>
 </head>
 <body>
     <div id="left-container">
-        <div id="draw-board-container"></div>
+        <div id="draw-board-container">
+            <canvas id="paintArea" style="border: solid black 1px;"></canvas>
+        </div>
         <div id="operate-area-container">
             <div id="button-area-container">
                 <!--清空画板和绘制完成-->
