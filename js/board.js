@@ -42,10 +42,12 @@ function board_init(){
             this.x = xx;
             this.y = yy;
         },
+        clear: function () {
+            this.ctx.clearRect(0, 0, this.w, this.h);
+        },
         initCanvas: function(){
             var canvas = document.getElementById("paintArea");
             canvas.addEventListener("mousedown", function(e){
-                console.log('!', this);
                 e.preventDefault();
                 this.x = e.offsetX;
                 this.y = e.offsetY;
@@ -71,6 +73,7 @@ function board_init(){
             this.initCanvas();
         }
     }
+    window.Painter = Painter;
     Painter.init();
 }
 
