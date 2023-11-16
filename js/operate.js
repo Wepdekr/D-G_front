@@ -14,6 +14,37 @@ function initBoldSelectDisplay(){
     }
 }
 
+function initColorSelectDisplay(){
+    var colorSelectArea = document.getElementById("palette-container");
+    var bColor = [
+        "#000000",
+        "#999999",
+        "#FFFFFF",
+        "#FF0000",
+        "#FF9900",
+        "#FFFF00",
+        "#008000",
+        "#00CCFF",
+        "#0099FF",
+        "#FF33CC",
+        "#CC66FF",
+        "#FFCCCC",
+        "#6633FF",
+        "#CCFFCC",
+    ];
+    for(let i=0;i<bColor.length;i++){
+        var color = document.createElement("div");
+        color.style.backgroundColor = bColor[i];
+        color.style.width = "10px";
+        color.style.height = "10px";
+        color.setAttribute("id",bColor[i]+"-"+"colorButton");
+        colorSelectArea.appendChild(color);
+        color.addEventListener("click", function(){
+            window.Painter.setBrushColor(bColor[i]);
+        })
+    }
+}
+
 function initButtonAction(){
     var clearButton = document.getElementById("clearButton");
     clearButton.addEventListener("click",function(){
@@ -36,4 +67,5 @@ function initButtonAction(){
 }
 
 addLoadEvent(initBoldSelectDisplay);
+addLoadEvent(initColorSelectDisplay);
 addLoadEvent(initButtonAction);
