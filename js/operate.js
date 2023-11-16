@@ -9,11 +9,17 @@ function initBoldSelectDisplay(){
         width_button.setAttribute("id",brushWidth[i]+"-"+"widthButton");
         boldSelectArea.appendChild(width_button);
         width_button.addEventListener("click", function(){
-            var canvas = document.getElementById('paintArea');
-            var ctx = canvas.getContext("2d");
-            ctx.lineWidth = brushWidth[i];
+            window.Painter.setBrushWidth(brushWidth[i]);
         })
     }
 }
 
+function initButtonAction(){
+    var clearButton = document.getElementById("clearButton");
+    clearButton.addEventListener("click",function(){
+        window.Painter.clear();
+    });
+}
+
 addLoadEvent(initBoldSelectDisplay);
+addLoadEvent(initButtonAction);
