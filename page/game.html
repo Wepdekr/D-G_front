@@ -7,6 +7,7 @@
     <title>游戏进行中 - 第0轮</title>
     <script src="../js/config.js"></script>
     <script src="../js/board.js"></script>
+    <script src="../js/operate.js"></script>
 </head>
 <body>
     <div id="left-container">
@@ -15,8 +16,16 @@
         </div>
         <div id="operate-area-container">
             <div id="button-area-container">
-                <!--清空画板和绘制完成-->
-                <!--猜测答案和提交答案-->
+                <div id="area-for-img">
+                    <button>清空画板</button>
+                    <button>提交画作</button>
+                    <!--清空画板和绘制完成-->
+                </div>
+                <div id="area-for-txt">
+                    <input type="text" placeholder="这张画代表？"/>
+                    <button>提交答案</button>
+                    <!--猜测答案和提交答案-->
+                </div>
             </div>
             <div id="bold-select-container">
                 <!--粗细选择-->
