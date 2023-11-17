@@ -45,6 +45,7 @@ function roundStateQuery(){
             gameRoom.ready_num = data.ready_num;
             gameRoom.is_ready = data.is_ready;
             gameRoom.is_submit = data.is_submit;
+            gameRoom.is_finished = data.is_finished;
         }
         else{
             console.log(data.msg);

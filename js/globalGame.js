@@ -9,6 +9,7 @@ var gameRoom = {
     ready_num: 0,
     is_ready: false,
     is_submit: false,
+    is_finished : false,
     end_time: 0,
     remain_minute : 0,
     remain_second : 0,

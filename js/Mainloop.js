@@ -29,6 +29,11 @@ function MainLoop(){
     }
     if(gameRoom.round_state == 3){
         roundInit();
+        if(gameRoom.is_finished){
+            clearInterval(mainLoopHandler);
+            alert('本局答题完成，将开始投票……');
+            window.location.replace("vote.html");
+        }
     }
     refreshDisplay();
 }
