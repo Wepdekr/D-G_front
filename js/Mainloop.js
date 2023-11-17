@@ -1,6 +1,7 @@
 function MainLoop(){
     roundStateQuery();
     if(gameRoom.round_state == -1){
+        roundInit();
     }
     if(gameRoom.round_state == 0 && gameRoom.is_ready == false){
         if(!readyCurrentRound()){
