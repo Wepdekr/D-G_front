@@ -11,46 +11,53 @@
     <script src="../js/operate.js"></script>
     <script src="../js/refreshGameDisplay.js"></script>
     <script src="../js/Mainloop.js"></script>
+    <link rel="stylesheet" type="text/css" href="../src/css/styles_game.css">
 </head>
 <body>
-    <div id="left-container">
-        <div id="draw-board-container">
-            <canvas id="paintArea" style="border: solid black 1px;"></canvas>
-        </div>
-        <div id="operate-area-container">
-            <div id="button-area-container">
-                <div id="area-for-img">
-                    <button id="clearButton">清空画板</button>
-                    <button id="uploadImgButton">提交画作</button>
-                    <!--清空画板和绘制完成-->
+    <div class="main">
+        <div id="left-container" class="left-center" >
+            <div id="draw-board-container" class="board">
+                <canvas id="paintArea" style="border: solid black 1px;" width="1085" height="560" ></canvas>
+            </div>
+            <div id="operate-area-container" class="board-tools">
+                <div id="button-area-container" class = "button-area-all">
+                    <div id="area-for-img" >
+                        <div class="button-area">
+                            <button id="clearButton" class="button">清空画板</button>
+                            <button id="uploadImgButton" class="button">提交画作</button>
+                        </div>
+                        <!--清空画板和绘制完成-->
+                    </div>
+                    <div id="area-for-txt">
+                        <input id="answerInput" class="input-content" type="text" placeholder="这张画代表？"/>
+                        <div class="button-area">
+                            <button id="submitButton" class="button">提交答案</button>
+                        </div>
+                        <p id="text-hint"></p>
+                        <p id="remain-time"></p>
+                        <!--猜测答案和提交答案-->
+                    </div>
                 </div>
-                <div id="area-for-txt">
-                    <input id="answerInput" type="text" placeholder="这张画代表？"/>
-                    <button id="submitButton">提交答案</button>
-                    <p id="text-hint"></p>
-                    <p id="remain-time"></p>
-                    <!--猜测答案和提交答案-->
+                <div id="bold-select-container" class="line-choose">
+                    <!--粗细选择-->
+                </div>
+                <div id="palette-container">
+                    <!--调色板-->
                 </div>
             </div>
-            <div id="bold-select-container">
-                <!--粗细选择-->
-            </div>
-            <div id="palette-container">
-                <!--调色板-->
-            </div>
         </div>
-    </div>
-    <div id="right-container">
-        <div id="hint-area">
-            <!--剩余时间和词汇提示-->
-        </div>
-        <div id="chat-area"> <!--TODO: 聊天窗口-->
-            <div id="message-display-area">
+        <div class="right-center" id="right-container">
+            <div id="hint-area">
+                <!--剩余时间和词汇提示-->
+            </div>
+            <div id="chat-area"> <!--TODO: 聊天窗口-->
+                <div id="message-display-area">
 
-            </div>
-            <div id="message-area">
-                <div id="message-edit-area"></div>
-                <div id="message-send-area"></div>
+                </div>
+                <div id="message-area">
+                    <div id="message-edit-area"></div>
+                    <div id="message-send-area"></div>
+                </div>
             </div>
         </div>
     </div>

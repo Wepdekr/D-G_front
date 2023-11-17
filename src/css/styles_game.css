@@ -1,0 +1,95 @@
+html, body {
+    font-family: 'Muli', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #c8e2f9;
+}
+.main {
+    width: 1550px;
+    height: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: start;
+}
+
+.left-center {
+    width: 70%;
+    height: 100%;
+    float: left;
+} 
+
+.right-center {
+    width: 30%;
+    height: 70%;
+    float: left;
+}
+
+.left-center .board {
+    height: 70%;
+    width: 100%;
+    margin: 10px auto 10px auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.left-center .board-tools {
+    width: 100%;
+    height: 20%;
+    margin: 30px auto 10px auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    justify-content: start;
+}
+.board-tools .button-area {
+    margin-top: 10px;
+    height: 130px;
+    width: 20%;
+}
+.board-tools .button-area .button {
+    margin: 0 auto;
+    width: 135px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #409eff;
+    font-size: 15px;
+    border-radius: 10px;
+    color: #222;
+    font-weight: bold;
+    cursor: pointer;
+}
+.board-tools .button-area .button:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    color: white;
+}
+.button-area-all{
+    margin-top: 30px;
+    margin-left: 30px;
+    display: flex;
+}
+
+#area-for-img{
+    width: 50%;
+    float: left;
+}
+#area-for-txt{
+    width: 50%;
+    float: left;
+}
+.input-content {
+    height: 30px;
+    width: 180px;
+    margin-bottom: 5px;
+    border: 2px #868d96 solid;
+    color: #797979;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+.line-choose {
+	margin-top: 30px;
+	height: 24px;
+	width: 168px;
+}
