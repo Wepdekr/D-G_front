@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏房间 - 未准备</title>
+    <script src="../js/config.js"></script>
+    <script src="../js/room.js"></script>
+</head>
+
+<body>
+    <!-- 房间页面 -->
+    <div class="room-container">
+        <h1>Draw & Guess</h1>
+
+        <div class="leftpage-box">
+            <select id="lexiconSelect">
+                <option value="0" selected>请选择词库</option>
+                <option value="1">动物类</option>
+                <option value="2">植物类</option>
+                <option value="3">食品类</option>
+            </select>
+
+            <div class="gameButtonSet">
+                <button class="prepare" id="prepareButton">准备</button>
+                <button class="start" id="startButton">开始</button>
+            </div>
+
+            <div class="exitButtonSet">
+                <button class="exit" id="exitButton">退出</button>
+                <button class="disband" id="disbandButton">解散房间</button>
+            </div>
+        </div>
+
+        <div class="rightpage-box">
+            <h1>玩家列表</h1>
+            <div class="player-list">
+                <ul id="player-ul">
+                    <!-- 玩家将在这里动态添加 -->
+                </ul>
+            </div>
+            <div class="counter-box">
+                <p>0/0已准备</p>
+            </div>
+        </div>
+
+        <div class="rightdown-hint">
+            <p>房间号码：</p>
+            <p id="room_id-display"></p>
+        </div>
+
+    </div>
+</body>
+
+</html>

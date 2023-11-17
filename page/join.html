@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>加入房间</title>
+        <script src="../js/config.js"></script>
+        <script src="../js/join.js"></script>
+    </head>
+    <body>
+        <!-- 进入房间页面 -->
+        <div class="enterroom-container">
+            <h1>Draw & Guess</h1>
+            <div class="enter-box">
+                <button class="button" id="enterRoomButton">加入房间</button>
+                <input type="text"id="roomNumber" placeholder="输入八位房间号" pattern="[a-z]{8}">
+            </div>
+            <div class="creat-box">
+                <button class="button" id="createRoomButton">创建房间</button>
+                <select id="lexiconSelect">
+                    <option value="0">请选择词库</option>
+                    <option value="1">动物类</option>
+                    <option value="2">植物类</option>
+                    <option value="3">食品类</option>
+                </select>
+            </div>
+        </div>
+    </body>
+</html>
