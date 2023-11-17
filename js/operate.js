@@ -55,6 +55,7 @@ function initButtonAction(){
     submitButton.addEventListener("click", function(){
         var ans = document.getElementById("answerInput").value;
         // 提交给后端
+        submitCurrentWork();
         console.log(ans);
     })
 
@@ -62,6 +63,7 @@ function initButtonAction(){
     imgButton.addEventListener("click",function(){
         var img = document.getElementById("paintArea").toDataURL();
         // 提交给后端
+        submitCurrentWork();
         console.log(img);
     });
 }
