@@ -1,13 +1,14 @@
 function initBoldSelectDisplay(){
-    var boldSelectArea = document.getElementById("bold-select-container");
+    // var boldSelectArea = document.getElementById("bold-select-container");
     var brushWidth = [4, 8, 16, 32];
     for(let i=0;i<brushWidth.length;i++){
-        var width_button = document.createElement("div");
-        width_button.style.backgroundColor = "black";
-        width_button.style.width = brushWidth[i]+"px";
-        width_button.style.height = brushWidth[i]+"px";
-        width_button.setAttribute("id",brushWidth[i]+"-"+"widthButton");
-        boldSelectArea.appendChild(width_button);
+        // var width_button = document.createElement("div");
+        // width_button.style.backgroundColor = "black";
+        // width_button.style.width = brushWidth[i]+"px";
+        // width_button.style.height = brushWidth[i]+"px";
+        // width_button.setAttribute("id",brushWidth[i]+"-"+"widthButton");
+        // boldSelectArea.appendChild(width_button);
+        var width_button = document.getElementById(brushWidth[i]+"-"+"widthButton");
         width_button.addEventListener("click", function(){
             window.Painter.setBrushWidth(brushWidth[i]);
         })
@@ -33,12 +34,13 @@ function initColorSelectDisplay(){
         "#CCFFCC",
     ];
     for(let i=0;i<bColor.length;i++){
-        var color = document.createElement("div");
-        color.style.backgroundColor = bColor[i];
-        color.style.width = "10px";
-        color.style.height = "10px";
-        color.setAttribute("id",bColor[i]+"-"+"colorButton");
-        colorSelectArea.appendChild(color);
+        // var color = document.createElement("div");
+        // color.style.backgroundColor = bColor[i];
+        // color.style.width = "10px";
+        // color.style.height = "10px";
+        // color.setAttribute("id",bColor[i]+"-"+"colorButton");
+        // colorSelectArea.appendChild(color);
+        var color = document.getElementById(bColor[i]+"-"+"colorButton");
         color.addEventListener("click", function(){
             window.Painter.setBrushColor(bColor[i]);
         })
