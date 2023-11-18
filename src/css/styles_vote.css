@@ -1,0 +1,60 @@
+html, body {
+    font-family: 'Muli', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #c8e2f9;
+}
+
+.main {
+    width: 1550px;
+    height: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: start;
+}
+
+.left-center {
+    width: 70%;
+    height: 100%;
+    float: left;
+} 
+
+.right-center {
+    width: 30%;
+    height: 100%;
+    float: left;
+}
+
+.left-center .board {
+    height: 70%;
+    width: 100%;
+    margin: 10px auto 10px auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.vote-area{
+    margin-top : 5%;
+}
+
+.button {
+    margin: 0 auto;
+    width: 135px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #409eff;
+    font-size: 15px;
+    border-radius: 10px;
+    color: #222;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-left: 20%;
+}
+.button:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    color: white;
+}
