@@ -20,4 +20,4 @@ var gameRoom = {
 
 var mainLoopHandler = null;
 
-const STATE2_TIMEOUT = 60000;
+const STATE2_TIMEOUT = 60;

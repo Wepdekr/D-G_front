@@ -11,7 +11,8 @@ var voteState = {
     is_vote: null,
     ques_id: null,
     is_finish: null,
-    ques_count: 0
+    ques_count: 0,
+    current_type: null
 }
 
 var voteLoopHandler = null;
@@ -101,19 +102,27 @@ function refreshShow(){
     var ctx = canvas.getContext("2d");
     var width = canvas.width;
     var height = canvas.height;
-    ctx.clearRect(0, 0, this.w, this.h);
     if(voteState.show_type == 1){ // 展示文字
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.font = "40px Georgia";
-        ctx.fillText(voteState.show_text, width/2, height/2);
+        if(voteState.current_type == 0 || voteState.current_type == null){
+            ctx.current_type = 1;
+            console.log("draw!");
+            ctx.clearRect(0, 0, width, height);
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.font = "40px Georgia";
+            ctx.fillText(voteState.show_text, width/2, height/2);
+        }
     }
     else{
-        var Img = new Image();
-        Img.src = voteState.show_img;
-        Img.onload = function(){
-            ctx.drawImage(Img, 0, 0, width, height);
-        };
+        if(voteState.current_type == 1 || voteState.current_type == null){
+            ctx.current_type = 0;
+            console.log("draw?");
+            var Img = new Image();
+            Img.src = voteState.show_img;
+            Img.onload = function(){
+                ctx.drawImage(Img, 0, 0, width, height);
+            };
+        }
     }
 }
 
@@ -134,10 +143,38 @@ function initMainLoop(){
     voteLoopHandler = setInterval(mainLoop, 10);
 }
 
+function submitVote(result){
+    var formData = new FormData();
+    formData.append("token",voteState.token);
+    formData.append("room_id",voteState.room_id);
+    formData.append("ques_id",voteState.ques_id);
+    formData.append("result",result);
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST",SERVER_ADDR + '/vote');
+    xhr.send(formData);
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4 && xhr.status == 200){
+            var data = JSON.parse(xhr.responseText);
+            if(data.status_code == 200){
+                console.log(data.msg);
+            }
+            else{
+                console.log(data.msg);
+            }
+        }
+        else if(xhr.status == 403){
+            clearInterval(voteLoopHandler);
+            alert("登录状态异常，请重新登录");
+            window.location.replace("login.html");
+        }
+    }
+}
+
 function addAction(){
     var approvalButton = document.getElementById("approveButton");
     approvalButton.addEventListener("click", function(){
         // 投赞成票
+        submitVote(1);
         var result = document.getElementById("vote-result");
         result.innerText = '赞成！'
     });
@@ -145,6 +182,7 @@ function addAction(){
     var disapprovalButton = document.getElementById("disapproveButton");
     disapprovalButton.addEventListener("click", function(){
         // 投反对票
+        submitVote(0);
         var result = document.getElementById("vote-result");
         result.innerText = '反对！'
     });

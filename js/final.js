@@ -28,3 +28,5 @@ function addAction(){
         }
     });
 }
+
+addLoadEvent(addAction);
