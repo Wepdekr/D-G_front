@@ -23,7 +23,7 @@ function jumpToFinal(){
 function updateVoteState(){
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 
-        SEVER_ADDR + '/vote'+'?'+'token='+voteState.token+'&'+'room_id='+voteState.room_id, false);
+        SERVER_ADDR + '/vote'+'?'+'token='+voteState.token+'&'+'room_id='+voteState.room_id, false);
     xhr.send();
     if(xhr.readyState == 4 && xhr.status == 200){
         var data = JSON.parse(xhr.responseText);

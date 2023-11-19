@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>游戏进行中 - 第0轮</title>
     <script src="../js/config.js"></script>
+    <script src="../js/globalGame.js"></script>
     <script src="../js/board.js"></script>
     <script src="../js/updateGame.js"></script>
     <script src="../js/operate.js"></script>
@@ -33,9 +34,6 @@
                         <div class="button-area">
                             <button id="submitButton" class="button">提交答案</button>
                         </div>
-                        <p id="text-hint"></p>
-                        <p id="remain-time"></p>
-                        <!--猜测答案和提交答案-->
                     </div>
                 </div>
                 <div id="bold-select-container" class="line-choose">
@@ -73,6 +71,8 @@
         <div  id="right-container" class="right-center">
             <div id="hint-area" class="notification">
                 <!--剩余时间和词汇提示-->
+                <p id="text-hint"></p>
+                <p id="remain-time"></p> 
             </div>
             <div id="chat-area" class="send-message"> <!--TODO: 聊天窗口-->
                 <div id="message-display-area">

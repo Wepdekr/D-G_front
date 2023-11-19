@@ -6,7 +6,7 @@ function readyCurrentRound(){
     console.log('enter ready state');
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 
-        SEVER_ADDR + '/ready'+'?'+'token='+gameRoom.token+'&'+'room_id='+gameRoom.room_id+'&'+'round='+gameRoom.round, false);
+        SERVER_ADDR + '/ready'+'?'+'token='+gameRoom.token+'&'+'room_id='+gameRoom.room_id+'&'+'round='+gameRoom.round, false);
     xhr.send();
     if(xhr.readyState == 4 && xhr.status == 200){
         var data = JSON.parse(xhr.responseText);
@@ -30,7 +30,7 @@ function readyCurrentRound(){
 function roundStateQuery(){
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 
-        SEVER_ADDR + '/ready'+'?'+'token='+gameRoom.token+'&'+'room_id='+gameRoom.room_id, false);
+        SERVER_ADDR + '/round'+'?'+'token='+gameRoom.token+'&'+'room_id='+gameRoom.room_id, false);
     xhr.send();
     if(xhr.readyState == 4 && xhr.status == 200){
         var data = JSON.parse(xhr.responseText);
@@ -61,7 +61,7 @@ function roundStateQuery(){
 function getCurrentQues(){
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 
-        SEVER_ADDR + '/work'+'?'+'token='+gameRoom.token+'&'+'room_id='+gameRoom.room_id+'&'+'round='+gameRoom.round, false);
+        SERVER_ADDR + '/work'+'?'+'token='+gameRoom.token+'&'+'room_id='+gameRoom.room_id+'&'+'round='+gameRoom.round, false);
     xhr.send();
     if(xhr.readyState == 4 && xhr.status == 200){
         var data = JSON.parse(xhr.responseText);
