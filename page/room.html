@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>游戏房间 - 未准备</title>
-    <script src="../js/config.js"></script>
-    <script src="../js/room.js"></script>
+    <!-- <script src="../js/config.js"></script> -->
+    <!-- <script src="../js/room.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="../src/css/styles_room.css">
 </head>
 
 <body>
     <!-- 房间页面 -->
     <div class="room-container">
-        <h1>Draw & Guess</h1>
-
         <div class="leftpage-box">
+
+            <h1 class="header">Draw & Guess</h1>
             <select id="lexiconSelect">
                 <option value="0" selected>请选择词库</option>
                 <option value="1">动物类</option>
@@ -23,33 +24,33 @@
             </select>
 
             <div class="gameButtonSet">
-                <button class="prepare" id="prepareButton">准备</button>
-                <button class="start" id="startButton">开始</button>
+                <button class="button" id="prepareButton">准备</button>
+                <button class="button" id="startButton">开始</button>
             </div>
 
             <div class="exitButtonSet">
-                <button class="exit" id="exitButton">退出</button>
-                <button class="disband" id="disbandButton">解散房间</button>
+                <button class="button" id="exitButton">退出</button>
+                <button class="button" id="disbandButton">解散房间</button>
+            </div>
+            <div class="rightdown-hint">
+                <p class="title">房间号码：</p>
+                <p id="room_id-display"></p>
             </div>
         </div>
-
         <div class="rightpage-box">
             <h1>玩家列表</h1>
             <div class="player-list">
                 <ul id="player-ul">
                     <!-- 玩家将在这里动态添加 -->
+                    <li>a</li>
+                    <li>b</li>
+                    <li>c</li>
                 </ul>
             </div>
-            <div class="counter-box">
+            <div class="counter-box" style="color:#fb7299">
                 <p>0/0已准备</p>
             </div>
         </div>
-
-        <div class="rightdown-hint">
-            <p>房间号码：</p>
-            <p id="room_id-display"></p>
-        </div>
-
     </div>
 </body>
 

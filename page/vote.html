@@ -7,19 +7,26 @@
     <title>投票进行中 - 第0个问题</title>
     <script src="../js/config.js"></script>
     <script src="../js/vote.js"></script>
+    <link rel="stylesheet" type="text/css" href="../src/css/styles_vote.css">
 </head>
 <body>
-    <div id="show_container">
-        <canvas id="show_board" style="border: 1px solid black;"></canvas>
-    </div>
-    <div id="vote-area">
-        <button id="approveButton">同意</button>
-        <button id="disapproveButton">不同意</button>
-    </div>
-    <div id="status-area">
-        <p id="vote-status"></p>
-        <p id="vote-hint"></p>
-        <p id="vote-result"></p>
+    <div class="main">
+        <div class="left-center" >
+            <div id="show_container" class="board">
+                <canvas id="show_board" style="border: solid black 1px;" width="1085" height="560"></canvas>
+            </div>
+            <div id="vote-area" class = "vote-area" >
+                <button id="approveButton" class="button">同意</button>
+                <button id="disapproveButton" class="button">不同意</button>
+            </div>
+        </div>
+        <div class="right-center" >
+            <div id="status-area">
+                <p id="vote-status"></p>
+                <p id="vote-hint"></p>
+                <p id="vote-result"></p>
+            </div>
+        </div>
     </div>
 </body>
 
