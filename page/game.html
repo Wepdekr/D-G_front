@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>游戏进行中 - 第0轮</title>
     <script src="../js/config.js"></script>
-    <script src="../js/globalGame.js"></script>
+     <script src="../js/globalGame.js"></script>
     <script src="../js/board.js"></script>
     <script src="../js/updateGame.js"></script>
     <script src="../js/operate.js"></script>
@@ -17,8 +17,14 @@
 <body>
     <div class="main">
         <div id="left-container" class="left-center" >
+                <div id="hint-area" class="notification">
+                    <!--剩余时间和词汇提示-->
+                    <p id="text-hint" class="notification-text"></p>
+                    <p id="remain-time" class="notification-text"></p> 
+                </div>
             <div id="draw-board-container" class="board">
-                <canvas id="paintArea" style="border: solid black 1px;" width="1085" height="560" ></canvas>
+                
+                <canvas id="paintArea" style="border: solid black 1px;" width="1550" height="560" ></canvas>
             </div>
             <div id="operate-area-container" class="board-tools">
                 <div id="button-area-container" class = "button-area-all">
