@@ -117,6 +117,7 @@ function refreshShow(){
         if(voteState.current_type == 1 || voteState.current_type == null){
             ctx.current_type = 0;
             console.log("draw?");
+            ctx.clearRect(0, 0, width, height);
             var Img = new Image();
             Img.src = voteState.show_img;
             Img.onload = function(){
