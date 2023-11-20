@@ -54,6 +54,10 @@ html, body {
     margin-bottom: 20px;
     margin-left: 20%;
 }
+button:disabled {
+    background-color: #ccc;
+    color: #666;
+  }
 .button:hover {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     color: white;

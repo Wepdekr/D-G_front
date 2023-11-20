@@ -32,7 +32,7 @@ function updateVoteState(){
             if(data.is_finish){
                 clearInterval(voteLoopHandler);
                 alert("投票全部完成");
-                setTimeout(jumpToFinal, 15000);
+                setTimeout(jumpToFinal, 25000);
             }
             else{
                 voteState.show_type = data.show_type;
