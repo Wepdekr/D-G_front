@@ -7,9 +7,17 @@ function refreshOperateArea(){
         return;
     if(gameRoom.ques_type == 1){ // 题目是词语
         document.getElementById("area-for-txt").style.display = "none";
+        if(gameRoom.is_submit == true){
+            document.getElementById("clearButton").setAttribute("disabled",true);
+            document.getElementById("uploadImgButton").setAttribute("disabled",true);
+        }
     }
     else{ // 题目是图片
         document.getElementById("area-for-img").style.display = "none";
+        if(gameRoom.is_submit == true){
+            document.getElementById("answerInput").setAttribute("disabled",true);
+            document.getElementById("submitButton").setAttribute("disabled",true);
+        }
     }
 }
 
@@ -28,12 +36,12 @@ function refreshPaintArea(){
 
 function refreshHintArea(){
     var remain = document.getElementById("remain-time");
-    remain.innerText = gameRoom.remain_minute + ':' + gameRoom.remain_second;
+    remain.innerHTML = gameRoom.remain_minute + ':' + gameRoom.remain_second;
     if(gameRoom.ques_type == null)
         return;
     if(gameRoom.ques_type == 1){
         var word = document.getElementById("text-hint");
-        word.innerText = gameRoom.ques;
+        word.innerHTML = gameRoom.ques;
     }
 }
 

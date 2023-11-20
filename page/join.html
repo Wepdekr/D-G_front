@@ -6,24 +6,43 @@
         <title>加入房间</title>
         <script src="../js/config.js"></script>
         <script src="../js/join.js"></script>
+        <link rel="stylesheet" type="text/css" href="../src/css/styles_join.css">
     </head>
     <body>
         <!-- 进入房间页面 -->
         <div class="enterroom-container">
-            <h1>Draw & Guess</h1>
-            <div class="enter-box">
-                <button class="button" id="enterRoomButton">加入房间</button>
-                <input type="text"id="roomNumber" placeholder="输入八位房间号" pattern="[a-z]{8}">
-            </div>
-            <div class="creat-box">
-                <button class="button" id="createRoomButton">创建房间</button>
-                <select id="lexiconSelect">
-                    <option value="0">请选择词库</option>
-                    <option value="1">动物类</option>
-                    <option value="2">植物类</option>
-                    <option value="3">食品类</option>
-                </select>
-            </div>
+            <h1 class="header">Draw & Guess</h1>
+            <div class="center" > <div class="input-section">
+                <div class="left-center">
+                    <div class="input-box">
+                        <input type="text"id="roomNumber" class="input-content" placeholder="输入八位房间号" pattern="[a-z]{8}">
+                        <div class="confirm">
+                            <button class="button" id="enterRoomButton">加入房间</button>
+                        </div>
+                        
+                    </div>   
+                    <div class="input-box">  
+                        <select id="lexiconSelect" class="input-content">
+                            <option value="0">请选择词库</option>
+                            <option value="1">动物类</option>
+                            <option value="2">植物类</option>
+                            <option value="3">食品类</option>
+                        </select>
+                        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;
+                        </p>
+                        <div class="confirm">
+                            <button class="button" id="createRoomButton">创建房间</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-center">
+                    <div class="input-avatar">
+                        <img class="avatar" src="../src/img/join.jpg" />
+                    </div>
+                </div>
+            </div></div>
         </div>
     </body>
 </html>

@@ -1,4 +1,4 @@
-const SERVER_ADDR = "http://192.168.163.190:8000";
+const SERVER_ADDR = "http://10.255.31.177:8000";
 
 // sessionStorage 记录
 // token 全局的登录token

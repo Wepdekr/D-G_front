@@ -6,26 +6,41 @@
         <title>注册账号</title>
         <script src="../js/config.js"></script>
         <script src="../js/regist.js"></script>
+        <link rel="stylesheet" type="text/css" href="../src/css/styles_regist.css">
     </head>
     <body>
         <div class="register-container">
-            <h1>Draw & Guess</h1>
-            <label class="input-box" for="registerUsername">
-                <input type="text" id="registerUsername" placeholder="请输入账号">
-                <!-- 账号输入框 -->
-            </label>
-            <label class="input-box" for="registerPassword">
-                <input type="password" id="registerPassword" placeholder="请输入密码">
-                <!-- 密码输入框 -->
-            </label>
-            <label class="input-box" for="registerComfirmPassword">
-                <input type="password" id="registerComfirmPassword" placeholder="请再次输入密码">
-                <!-- 密码确认框 -->
-            </label>
-            <button class="button" id="registerSubmitButton">注册</button>
-            <!-- 确认注册按钮 -->
-            <button class="button" id="returnButton">返回</button>
-            <!-- 重置按钮 -->
+            <h1 class="header">Draw & Guess</h1>
+            <div class="center" > <div class="input-section">
+                <div class="left-center">
+                    <label class="input-box" for="registerUsername">
+                        <div class="input-title">账号：</div>
+                        <input type="text" class="input-content" id="registerUsername" placeholder="请输入账号">
+                        <!-- 账号输入框 -->
+                    </label>
+                    <label class="input-box" for="registerPassword">
+                        <div class="input-title">密码：</div>
+                        <input type="password" class="input-content" id="registerPassword" placeholder="请输入密码">
+                        <!-- 密码输入框 -->
+                    </label>
+                    <label class="input-box" for="registerComfirmPassword">
+                        <div class="input-title">确认密码：</div>
+                        <input type="password" class="input-content" id="registerComfirmPassword" placeholder="请再次输入密码">
+                        <!-- 密码确认框 -->
+                    </label>
+                    <div class="confirm">
+                        <button class="button" id="registerSubmitButton">注册</button>
+                        <!-- 确认注册按钮 -->
+                        <button class="button" id="returnButton">返回</button>
+                        <!-- 重置按钮 -->
+                    </div>
+                </div>
+                <div class="right-center">
+                    <div class="input-avatar">
+                        <img class="avatar" src="../src/img/regist.jpg" />
+                    </div>
+                </div>
+            </div></div>
         </div>
     </body>
 </html>

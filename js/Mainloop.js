@@ -16,9 +16,9 @@ function MainLoop(){
         }
         // 获取本轮ques
         gameRoom.end_time = gameRoom.start_time + STATE2_TIMEOUT;
-        var curTime = new Date().getTime();
+        var curTime = new Date().getTime() / 1000;
         var diffTime = gameRoom.end_time - curTime;
-        var diffDate = new Date(diffTime);
+        var diffDate = new Date(diffTime*1000);
         gameRoom.remain_minute = diffDate.getMinutes();
         gameRoom.remain_second = diffDate.getSeconds();
     }

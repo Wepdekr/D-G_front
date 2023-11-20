@@ -6,51 +6,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>游戏进行中 - 第0轮</title>
     <script src="../js/config.js"></script>
+     <script src="../js/globalGame.js"></script>
     <script src="../js/board.js"></script>
     <script src="../js/updateGame.js"></script>
     <script src="../js/operate.js"></script>
     <script src="../js/refreshGameDisplay.js"></script>
     <script src="../js/Mainloop.js"></script>
+    <link rel="stylesheet" type="text/css" href="../src/css/styles_game.css">
 </head>
 <body>
-    <div id="left-container">
-        <div id="draw-board-container">
-            <canvas id="paintArea" style="border: solid black 1px;"></canvas>
-        </div>
-        <div id="operate-area-container">
-            <div id="button-area-container">
-                <div id="area-for-img">
-                    <button id="clearButton">清空画板</button>
-                    <button id="uploadImgButton">提交画作</button>
-                    <!--清空画板和绘制完成-->
+    <div class="main">
+        <div id="left-container" class="left-center" >
+                <div id="hint-area" class="notification">
+                    <!--剩余时间和词汇提示-->
+                    <p id="text-hint" class="notification-text"></p>
+                    <p id="remain-time" class="notification-text"></p> 
                 </div>
-                <div id="area-for-txt">
-                    <input id="answerInput" type="text" placeholder="这张画代表？"/>
-                    <button id="submitButton">提交答案</button>
-                    <p id="text-hint"></p>
-                    <p id="remain-time"></p>
-                    <!--猜测答案和提交答案-->
+            <div id="draw-board-container" class="board">
+                
+                <canvas id="paintArea" style="border: solid black 1px;" width="1550" height="560" ></canvas>
+            </div>
+            <div id="operate-area-container" class="board-tools">
+                <div id="button-area-container" class = "button-area-all">
+                    <div id="area-for-img" >
+                        <div class="button-area">
+                            <button id="clearButton" class="button">清空画板</button>
+                            <button id="uploadImgButton" class="button">提交画作</button>
+                        </div>
+                        <!--清空画板和绘制完成-->
+                    </div>
+                    <div id="area-for-txt">
+                        <input id="answerInput" class="input-content" type="text" placeholder="这张画代表？"/>
+                        <div class="button-area">
+                            <button id="submitButton" class="button">提交答案</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="bold-select-container" class="line-choose">
+                    <div class="title">选取线条粗细</div>
+                    <!--粗细选择-->
+                    <div class="width-option">
+                        <div id="4-widthButton" class="option" style="background-color: black; width: 4px; height: 4px;"></div>
+                        <div id="8-widthButton" class="option" style="background-color: black; width: 8px; height: 8px;"></div>
+                        <div id="16-widthButton" class="option" style="background-color: black; width: 16px; height: 16px;"></div>
+                        <div id="32-widthButton" class="option" style="background-color: black; width: 32px; height: 32px;"></div>
+                    </div>
+                </div>
+                <div id="palette-container" class="color-choose">
+                    <div class="title">选取画笔颜色</div>
+                    <!--调色板-->
+                    <div class="color-option">
+                        <div id="#000000-colorButton"  class="option" style="background-color: rgb(0, 0, 0); width: 15px; height: 15px;"></div>
+                        <div id="#999999-colorButton"  class="option" style="background-color: rgb(153, 153, 153); width: 15px; height: 15px;"></div>
+                        <div id="#FFFFFF-colorButton"  class="option" style="background-color: rgb(255, 255, 255); width: 15px; height: 15px;"></div>
+                        <div id="#FF0000-colorButton"  class="option" style="background-color: rgb(255, 0, 0); width: 15px; height: 15px;"></div>
+                        <div id="#FF9900-colorButton"  class="option" style="background-color: rgb(255, 153, 0); width: 15px; height: 15px;"></div>
+                        <div id="#FFFF00-colorButton"  class="option" style="background-color: rgb(255, 255, 0); width: 15px; height: 15px;"></div>
+                        <div id="#008000-colorButton"  class="option" style="background-color: rgb(0, 128, 0); width: 15px; height: 15px;"></div>
+                        <div id="#00CCFF-colorButton"  class="option" style="background-color: rgb(0, 204, 255); width: 15px; height: 15px;"></div>
+                        <div id="#0099FF-colorButton"  class="option" style="background-color: rgb(0, 153, 255); width: 15px; height: 15px;"></div>
+                        <div id="#FF33CC-colorButton"  class="option" style="background-color: rgb(255, 51, 204); width: 15px; height: 15px;"></div>
+                        <div id="#CC66FF-colorButton"  class="option" style="background-color: rgb(204, 102, 255); width: 15px; height: 15px;"></div>
+                        <div id="#FFCCCC-colorButton"  class="option" style="background-color: rgb(255, 204, 204); width: 15px; height: 15px;"></div>
+                        <div id="#6633FF-colorButton"  class="option" style="background-color: rgb(102, 51, 255); width: 15px; height: 15px;"></div>
+                        <div id="#CCFFCC-colorButton"  class="option" style="background-color: rgb(204, 255, 204); width: 15px; height: 15px;"></div>
+                    </div>
                 </div>
             </div>
-            <div id="bold-select-container">
-                <!--粗细选择-->
-            </div>
-            <div id="palette-container">
-                <!--调色板-->
-            </div>
         </div>
-    </div>
-    <div id="right-container">
-        <div id="hint-area">
-            <!--剩余时间和词汇提示-->
-        </div>
-        <div id="chat-area"> <!--TODO: 聊天窗口-->
-            <div id="message-display-area">
+        <div  id="right-container" class="right-center">
+            <div id="hint-area" class="notification">
+                <!--剩余时间和词汇提示-->
+                <p id="text-hint"></p>
+                <p id="remain-time"></p> 
+            </div>
+            <div id="chat-area" class="send-message"> <!--TODO: 聊天窗口-->
+                <div id="message-display-area">
 
-            </div>
-            <div id="message-area">
-                <div id="message-edit-area"></div>
-                <div id="message-send-area"></div>
+                </div>
+                <div id="message-area">
+                    <div id="message-edit-area"></div>
+                    <div id="message-send-area"></div>
+                </div>
             </div>
         </div>
     </div>

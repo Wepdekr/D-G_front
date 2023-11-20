@@ -1,0 +1,218 @@
+html, body {
+    font-family: 'Muli', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #c8e2f9;
+}
+
+/* .room-container h1 {
+    text-align: center;
+    font-size: 40px; 
+    margin-top: -100px; 
+    margin-bottom: 60px;
+}       
+
+.leftpage-box {
+    float: left;
+    width: 50%;
+}
+
+.leftpage-box select{
+    text-align: left;
+    margin-top: 80px; 
+    width: 315px;
+    height: 90px;
+    font-size: 9dvh;
+    padding: 15px;
+    margin-right: 70px;
+}
+.leftpage-box .buttonset{
+    text-align: left;
+    margin-top: 380px; 
+    margin-left: 70px;
+    margin-right: 70px;
+}
+.leftpage-box button{
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.leftpage-box .start{
+    margin-left: 80px;
+}
+
+.leftpage-box button:hover {
+    background-color: #2980b9;
+}
+
+.player-list {
+    float: right;
+    width: 50%;
+}
+
+.player-list h1{
+    text-align: left;
+    font-size: 40px; 
+    margin-top: 10px; 
+    margin-bottom: 10px;
+}
+
+.player-list body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+}
+
+.player-list .player-list {
+    border: 1px solid #921818;
+    padding: 10px;
+    height: 380px;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.player-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.player-list li {
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.player-list button {
+    background-color: #ff5757;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.player-list input {
+    margin-top: 15px; 
+    width: 200px;
+    height: 20px;
+} */
+.room-container{
+    width: 1550px;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    text-align: center;
+    font-size: 40px; 
+    margin-bottom: 60px;
+}       
+.leftpage-box {
+    height: 100%;
+    width: 50%;
+    justify-content: center;
+}
+.leftpage-box select{
+    width: 40%;
+    font-size: 4dvh;
+    padding: 15px;
+    margin-left: 30%;
+}
+.gameButtonSet{
+    margin-left: 10%;
+    margin-top: 10%;
+    display: flex
+}
+
+.exitButtonSet{
+    margin-left: 10%;
+    margin-top: 10%;
+    display: flex
+}
+button:disabled {
+    background-color: #ccc;
+    color: #666;
+  }
+.button {
+    margin: 0 auto;
+    width: 270px;
+    height: 50px;
+    line-height: 40px;
+    text-align: center;
+    background: #409eff;
+    font-size: 15px;
+    border-radius: 10px;
+    color: #222;
+    font-weight: bold;
+    cursor: pointer;
+}
+.board-tools .clear-board .button:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    color: white;
+}
+.rightdown-hint{
+    margin-left: 30%;
+    margin-top: 10%;
+    display: flex
+}
+.rightdown-hint .title {
+    width: 30%;
+    color: #222;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.rightpage-box {
+    float: left;
+    height: 100%;
+    width: 50%;
+}
+.rightpage-box .player-list {
+    height: 65%;
+    width: 90%;
+    margin: 10px auto 10px auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow: auto;
+}
+.counter-box{
+    margin-left: 40px ;
+}
+/* 设置滚动条样式 */
+/* 滚动栏宽度 */
+.player-list::-webkit-scrollbar {
+    width: 7px;
+}
+/* 滚动栏滑块 */
+.player-list::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #3798e8;
+}
+/* 滚动栏轨道 */
+.player-list::-webkit-scrollbar-track {
+    border-radius: 0;
+    background: #eeeeee;
+}
+.player-list li {
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}
+#player-ul {
+    padding-right: 5%;
+}
+li p {
+    margin-left: 10px; /* 调整下方间距 */
+}

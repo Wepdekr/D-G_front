@@ -1,0 +1,182 @@
+html, body {
+    font-family: 'Muli', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #c8e2f9;
+}
+.main {
+    width: 1550px;
+    height: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: start;
+}
+
+.left-center {
+    width: 100%;
+    height: 100%;
+    float: left;
+} 
+
+.right-center {
+    width: 0%;
+    height: 100%;
+    float: left;
+}
+
+.left-center .board {
+    height: 70%;
+    width: 100%;
+    margin: 10px auto 10px auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.left-center .board-tools {
+    width: 100%;
+    height: 20%;
+    margin: 30px auto 10px auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    justify-content: start;
+}
+.board-tools .button-area {
+    margin-top: 10px;
+    height: 130px;
+    width: 20%;
+}
+.board-tools .button-area .button {
+    margin: 0 auto;
+    width: 135px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #409eff;
+    font-size: 15px;
+    border-radius: 10px;
+    color: #222;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.board-tools .button-area .button:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    color: white;
+}
+.button-area-all{
+    margin-top: 30px;
+    margin-left: 30px;
+    display: flex;
+}
+button:disabled {
+    background-color: #ccc;
+    color: #666;
+  }
+#area-for-img{
+    width: 50%;
+    float: left;
+}
+#area-for-txt{
+    width: 50%;
+    float: left;
+}
+.input-content {
+    height: 30px;
+    width: 180px;
+    margin-bottom: 5px;
+    border: 2px #868d96 solid;
+    color: #797979;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+.line-choose {
+	margin-top: 30px;
+	height: 24px;
+	width: 168px;
+}
+.line-choose .title{
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    color: #222;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.line-choose .width-option {
+    margin-top: 10px;
+    width: 100%;
+    height: 85px;
+    display: flex;
+    justify-content: space-around;
+}
+.width-option .option {
+    height: 100%;
+    width: 33%;
+}
+.color-choose {
+    margin-top: 30px;
+    height: 130px;
+    width: 50%;
+}
+.color-choose .title {
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    color: #222;
+    font-weight: bold;
+    margin-left: 10px;
+}
+.color-choose .color-option {
+    width: 100%;
+    height: 95px;
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+.color-choose .color-option div {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+.color-choose .color-option .option{
+    margin-left: 50px;
+    border: 1px solid #000
+}
+
+.left-center .notification {
+    width: 50%;
+    height: 3%;
+    background: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    justify-content: start;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    margin-top: 10px;
+}
+
+.left-center .notification .notification-text{
+    text-align: center;
+    flex: left;
+    width: 50%;
+    height: 100%;
+    margin-top: 0px;
+}
+
+.right-center .send-message {
+    width: 100%;
+    height: 70%;
+    margin-top: 20px;
+    margin-left: 10px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
